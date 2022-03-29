@@ -93,6 +93,6 @@ extension SceneViewController : UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: self.collectionView.frame.size.width , height: 70)
     }
 }
