@@ -8,7 +8,7 @@
 import UIKit
 import UIKit
  
-class CollectionCellView : UICollectionViewCell {
+class PersonCellView : UICollectionViewCell {
      
     var label: UILabel?
      
@@ -22,7 +22,12 @@ class CollectionCellView : UICollectionViewCell {
     }
      
     private func create(frame: CGRect) {
-        self.label = UILabel(frame: frame)
-        self.contentView.addSubview(self.label!)
+        label = UILabel()
+        label?.translatesAutoresizingMaskIntoConstraints = false
+        label?.frame.size.height = 50
+        label?.frame.size.width = 50
+        label?.font = .boldSystemFont(ofSize: 30)
+        backgroundColor = .white
+        contentView.addSubview(label!)
     }
 }

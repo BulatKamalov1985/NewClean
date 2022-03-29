@@ -11,15 +11,14 @@ import UIKit
 class SceneViewController: UIViewController, SceneDisplayLogic {
     
     var collectionView: UICollectionView!
-    var persons: [Person]? {
-        didSet {
-            print(persons?.count ?? 1)
-        }
-    }
+    var persons: [Person]?
+    
     private var layout : UICollectionViewFlowLayout {
         let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let boundSize: CGSize = UIScreen.main.bounds.size
-        layout.itemSize = CGSize(width: boundSize.width, height: 50)
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 1
+//        let boundSize: CGSize = UIScreen.main.bounds.size
+//        layout.itemSize = CGSize(width: boundSize.width, height: 50)
         return layout
     }
     
@@ -49,11 +48,12 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     }
     
     func setupCollectionView() {
-        self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: self.layout)
+        self.collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         self.collectionView?.backgroundColor = UIColor.yellow
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
-        self.collectionView?.register(CollectionCellView.self, forCellWithReuseIdentifier: "cell")
+        self.collectionView?.register(PersonCellView.self, forCellWithReuseIdentifier: "cell")
+
     }
     // MARK: - SceneDisplayLogic
     
@@ -78,9 +78,21 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell : CollectionCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCellView
+        let cell : PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
         cell.label?.text = persons?[indexPath.row].firstName
         
         return cell
+    }
+
+
+}
+
+extension SceneViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: 100, height: 100)
     }
 }
