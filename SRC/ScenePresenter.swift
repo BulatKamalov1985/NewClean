@@ -9,7 +9,7 @@
 final class ScenePresenter: ScenePresentationLogic {
     weak var viewController: SceneDisplayLogic?
 
-    func presentInitForm(_ response: Scene.InitForm.Response) {
-        viewController?.displayInitForm(Scene.InitForm.ViewModel())
+    func presentInitForm(_ response: ResponseModel) {
+        viewController?.displayInitForm(ViewModel(person: response.person))
     }
 }

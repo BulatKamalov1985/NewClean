@@ -22,6 +22,7 @@
 		39687ECF27F1C8D200C0ED34 /* SceneProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687EC727F1C8D200C0ED34 /* SceneProtocols.swift */; };
 		39687ED027F1C8D200C0ED34 /* SceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */; };
 		39687ED127F1C8D200C0ED34 /* SceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */; };
+		39C97F5227F2FD1C00626758 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5127F2FD1C00626758 /* PersonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		39687EC727F1C8D200C0ED34 /* SceneProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneProtocols.swift; sourceTree = "<group>"; };
 		39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneAssembly.swift; sourceTree = "<group>"; };
 		39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneInteractor.swift; sourceTree = "<group>"; };
+		39C97F5127F2FD1C00626758 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,14 +93,7 @@
 		39687E8627F1C25C00C0ED34 = {
 			isa = PBXGroup;
 			children = (
-				39687EC227F1C8D200C0ED34 /* ScenePresenter.swift */,
-				39687EC327F1C8D200C0ED34 /* SceneWorker.swift */,
-				39687EC427F1C8D200C0ED34 /* SceneRouter.swift */,
-				39687EC527F1C8D200C0ED34 /* SceneModels.swift */,
-				39687EC627F1C8D200C0ED34 /* SceneViewController.swift */,
-				39687EC727F1C8D200C0ED34 /* SceneProtocols.swift */,
-				39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */,
-				39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */,
+				39687ED227F1D9EB00C0ED34 /* SRC */,
 				39687E9127F1C25C00C0ED34 /* NewClean */,
 				39687EA827F1C25E00C0ED34 /* NewCleanTests */,
 				39687EB227F1C25E00C0ED34 /* NewCleanUITests */,
@@ -143,6 +138,30 @@
 				39687EB527F1C25E00C0ED34 /* NewCleanUITestsLaunchTests.swift */,
 			);
 			path = NewCleanUITests;
+			sourceTree = "<group>";
+		};
+		39687ED227F1D9EB00C0ED34 /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				39687ED327F1DA1400C0ED34 /* Protocols */,
+				39687EC627F1C8D200C0ED34 /* SceneViewController.swift */,
+				39C97F5127F2FD1C00626758 /* PersonCell.swift */,
+				39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */,
+				39687EC227F1C8D200C0ED34 /* ScenePresenter.swift */,
+				39687EC327F1C8D200C0ED34 /* SceneWorker.swift */,
+				39687EC427F1C8D200C0ED34 /* SceneRouter.swift */,
+				39687EC527F1C8D200C0ED34 /* SceneModels.swift */,
+				39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */,
+			);
+			path = SRC;
+			sourceTree = "<group>";
+		};
+		39687ED327F1DA1400C0ED34 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				39687EC727F1C8D200C0ED34 /* SceneProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +302,7 @@
 				39687ECA27F1C8D200C0ED34 /* ScenePresenter.swift in Sources */,
 				39687E9527F1C25C00C0ED34 /* SceneDelegate.swift in Sources */,
 				39687ECC27F1C8D200C0ED34 /* SceneRouter.swift in Sources */,
+				39C97F5227F2FD1C00626758 /* PersonCell.swift in Sources */,
 				39687ECE27F1C8D200C0ED34 /* SceneViewController.swift in Sources */,
 				39687ED127F1C8D200C0ED34 /* SceneInteractor.swift in Sources */,
 			);

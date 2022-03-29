@@ -8,6 +8,7 @@
 import Foundation
 
 final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
+    
     private let presenter: ScenePresentationLogic
     private let worker: SceneWorkerLogic
 
@@ -19,9 +20,10 @@ final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
         self.worker = worker
     }
 
-    func requestInitForm(_ request: Scene.InitForm.Request) {
+    func requestInitForm(_ request: RequestModel) {
+        let response = worker.get(request)
         DispatchQueue.main.async {
-            self.presenter.presentInitForm(Scene.InitForm.Response())
+            self.presenter.presentInitForm(response)
         }
     }
 }

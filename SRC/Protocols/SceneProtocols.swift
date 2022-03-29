@@ -10,20 +10,26 @@ protocol SceneDataPassing {
     var dataStore: SceneDataStore { get }
 }
 
-protocol SceneDataStore {}
-
-protocol SceneBusinessLogic {
-    func requestInitForm(_ request: Scene.InitForm.Request)
+protocol SceneDataStore {
+    
 }
 
-protocol SceneWorkerLogic {}
+protocol SceneBusinessLogic {
+    func requestInitForm(_ request: RequestModel)
+}
+
+protocol SceneWorkerLogic {
+    func get(_ request: RequestModel) -> ResponseModel
+}
 
 protocol ScenePresentationLogic {
-    func presentInitForm(_ response: Scene.InitForm.Response)
+    func presentInitForm(_ response: ResponseModel)
 }
 
 protocol SceneDisplayLogic: AnyObject {
-    func displayInitForm(_ viewModel: Scene.InitForm.ViewModel)
+    func displayInitForm(_ viewModel: ViewModel)
 }
 
-protocol SceneRoutingLogic {}
+protocol SceneRoutingLogic {
+    
+}
