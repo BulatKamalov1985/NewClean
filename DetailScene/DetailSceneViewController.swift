@@ -29,8 +29,31 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemMint
+        title = "Wellcome"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
         initForm()
     }
+    
+    deinit {
+        print("good")
+    }
+    
+    
+
+    
+    @objc private func didTapButton() {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .white
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func dismissSelf() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 
     // MARK: - DetailSceneDisplayLogic
 
@@ -40,5 +63,6 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
 
     private func initForm() {
         interactor.requestInitForm(DetailScene.InitForm.Request())
+       
     }
 }

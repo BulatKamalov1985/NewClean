@@ -8,6 +8,7 @@
 import Foundation
 
 final class DetailSceneInteractor: DetailSceneBusinessLogic, DetailSceneDataStore {
+    
     private let presenter: DetailScenePresentationLogic
     private let worker: DetailSceneWorkerLogic
 

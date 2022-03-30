@@ -31,5 +31,5 @@ protocol SceneDisplayLogic: AnyObject {
 }
 
 protocol SceneRoutingLogic {
-    
+    func routeTo()
 }

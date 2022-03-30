@@ -10,6 +10,7 @@ import UIKit
 
 enum SceneAssembly {
     static func build() -> UIViewController {
+        
         let presenter = ScenePresenter()
         let worker = SceneWorker()
         let interactor = SceneInteractor(presenter: presenter, worker: worker)

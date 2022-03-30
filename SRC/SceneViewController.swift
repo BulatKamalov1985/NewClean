@@ -12,12 +12,6 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     var collectionView: UICollectionView!
     var persons: [Person]?
     
-//    private var layout : UICollectionViewFlowLayout {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 5
-//        return layout
-//    }
-    
     private let interactor: SceneBusinessLogic
     private let router: SceneRoutingLogic
     
@@ -98,17 +92,7 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailSceneViewController(interactor: interactor, router: router)
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        router.routeTo()
     }
 }
-
-//extension SceneViewController : UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView,
-//        layout collectionViewLayout: UICollectionViewLayout,
-//        sizeForItemAt indexPath: IndexPath
-//    ) -> CGSize {
-//        return CGSize(width: self.collectionView.frame.size.width , height: 70)
-//    }
-//}
-

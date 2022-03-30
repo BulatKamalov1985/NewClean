@@ -16,6 +16,23 @@ final class SceneRouter: SceneRoutingLogic, SceneDataPassing {
     init(dataStore: SceneDataStore) {
         self.dataStore = dataStore
     }
+    
+    func routeTo() {
+        let rootVC = DetailSceneAssembly.build()
+        
+      
+        
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        navigationController.navigationBar.backgroundColor = .systemGray
+        navigationController.modalPresentationStyle = .fullScreen
+        
+        viewController?.present(navigationController, animated: true, completion: nil)
+//        rootVC.modalPresentationStyle = .fullScreen
+//        let view = DetailSceneAssembly.build()
+//        view.modalPresentationStyle = .fullScreen
+//        viewController?.present(view, animated: true, completion: nil)
+
+    }
 }
 
 private extension SceneRouter {
