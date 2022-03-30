@@ -18,7 +18,7 @@ enum Scene {
             
         }
         struct Response {
-            let person: [Person]
+            var person: [Person]
         }
         struct ViewModel {
             var person: [Person]

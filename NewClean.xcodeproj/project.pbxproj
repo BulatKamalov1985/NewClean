@@ -23,6 +23,14 @@
 		39687ED027F1C8D200C0ED34 /* SceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */; };
 		39687ED127F1C8D200C0ED34 /* SceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */; };
 		39C97F5227F2FD1C00626758 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5127F2FD1C00626758 /* PersonCell.swift */; };
+		39C97F5C27F4575E00626758 /* DetailScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5427F4575E00626758 /* DetailScenePresenter.swift */; };
+		39C97F5D27F4575E00626758 /* DetailSceneWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5527F4575E00626758 /* DetailSceneWorker.swift */; };
+		39C97F5E27F4575E00626758 /* DetailSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5627F4575E00626758 /* DetailSceneRouter.swift */; };
+		39C97F5F27F4575E00626758 /* DetailSceneModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5727F4575E00626758 /* DetailSceneModels.swift */; };
+		39C97F6027F4575E00626758 /* DetailSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5827F4575E00626758 /* DetailSceneViewController.swift */; };
+		39C97F6127F4575E00626758 /* DetailSceneProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5927F4575E00626758 /* DetailSceneProtocols.swift */; };
+		39C97F6227F4575E00626758 /* DetailSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5A27F4575E00626758 /* DetailSceneAssembly.swift */; };
+		39C97F6327F4575E00626758 /* DetailSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C97F5B27F4575E00626758 /* DetailSceneInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +71,14 @@
 		39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneAssembly.swift; sourceTree = "<group>"; };
 		39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneInteractor.swift; sourceTree = "<group>"; };
 		39C97F5127F2FD1C00626758 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		39C97F5427F4575E00626758 /* DetailScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScenePresenter.swift; sourceTree = "<group>"; };
+		39C97F5527F4575E00626758 /* DetailSceneWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneWorker.swift; sourceTree = "<group>"; };
+		39C97F5627F4575E00626758 /* DetailSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneRouter.swift; sourceTree = "<group>"; };
+		39C97F5727F4575E00626758 /* DetailSceneModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneModels.swift; sourceTree = "<group>"; };
+		39C97F5827F4575E00626758 /* DetailSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneViewController.swift; sourceTree = "<group>"; };
+		39C97F5927F4575E00626758 /* DetailSceneProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneProtocols.swift; sourceTree = "<group>"; };
+		39C97F5A27F4575E00626758 /* DetailSceneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneAssembly.swift; sourceTree = "<group>"; };
+		39C97F5B27F4575E00626758 /* DetailSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSceneInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				39687ED227F1D9EB00C0ED34 /* SRC */,
+				39C97F5327F4570300626758 /* DetailScene */,
 				39687E9127F1C25C00C0ED34 /* NewClean */,
 				39687EA827F1C25E00C0ED34 /* NewCleanTests */,
 				39687EB227F1C25E00C0ED34 /* NewCleanUITests */,
@@ -162,6 +179,29 @@
 				39687EC727F1C8D200C0ED34 /* SceneProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		39C97F5327F4570300626758 /* DetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				39C97F6427F45CF200626758 /* ProtocolsDetailScene */,
+				39C97F5827F4575E00626758 /* DetailSceneViewController.swift */,
+				39C97F5B27F4575E00626758 /* DetailSceneInteractor.swift */,
+				39C97F5427F4575E00626758 /* DetailScenePresenter.swift */,
+				39C97F5A27F4575E00626758 /* DetailSceneAssembly.swift */,
+				39C97F5527F4575E00626758 /* DetailSceneWorker.swift */,
+				39C97F5627F4575E00626758 /* DetailSceneRouter.swift */,
+				39C97F5727F4575E00626758 /* DetailSceneModels.swift */,
+			);
+			path = DetailScene;
+			sourceTree = "<group>";
+		};
+		39C97F6427F45CF200626758 /* ProtocolsDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				39C97F5927F4575E00626758 /* DetailSceneProtocols.swift */,
+			);
+			path = ProtocolsDetailScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,17 +334,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C97F5E27F4575E00626758 /* DetailSceneRouter.swift in Sources */,
+				39C97F6227F4575E00626758 /* DetailSceneAssembly.swift in Sources */,
 				39687ECB27F1C8D200C0ED34 /* SceneWorker.swift in Sources */,
+				39C97F5D27F4575E00626758 /* DetailSceneWorker.swift in Sources */,
 				39687E9327F1C25C00C0ED34 /* AppDelegate.swift in Sources */,
+				39C97F6127F4575E00626758 /* DetailSceneProtocols.swift in Sources */,
+				39C97F5C27F4575E00626758 /* DetailScenePresenter.swift in Sources */,
 				39687ED027F1C8D200C0ED34 /* SceneAssembly.swift in Sources */,
+				39C97F5F27F4575E00626758 /* DetailSceneModels.swift in Sources */,
 				39687ECF27F1C8D200C0ED34 /* SceneProtocols.swift in Sources */,
 				39687ECD27F1C8D200C0ED34 /* SceneModels.swift in Sources */,
 				39687ECA27F1C8D200C0ED34 /* ScenePresenter.swift in Sources */,
+				39C97F6027F4575E00626758 /* DetailSceneViewController.swift in Sources */,
 				39687E9527F1C25C00C0ED34 /* SceneDelegate.swift in Sources */,
 				39687ECC27F1C8D200C0ED34 /* SceneRouter.swift in Sources */,
 				39C97F5227F2FD1C00626758 /* PersonCell.swift in Sources */,
 				39687ECE27F1C8D200C0ED34 /* SceneViewController.swift in Sources */,
 				39687ED127F1C8D200C0ED34 /* SceneInteractor.swift in Sources */,
+				39C97F6327F4575E00626758 /* DetailSceneInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

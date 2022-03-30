@@ -24,9 +24,10 @@ class PersonCellView : UICollectionViewCell {
     private func create(frame: CGRect) {
         label = UILabel()
         label?.translatesAutoresizingMaskIntoConstraints = false
-        label?.frame.size.height = self.frame.size.height - 10
-        label?.frame.size.width = self.frame.size.width - 50
-        label?.font = .boldSystemFont(ofSize: 16)
+        label?.frame.size.height = self.frame.size.height
+        label?.frame.size.width = self.frame.size.width
+        label?.font = .boldSystemFont(ofSize: 40)
+        label?.textAlignment = .center
         backgroundColor = .white
         contentView.addSubview(label!)
     }

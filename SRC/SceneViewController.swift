@@ -12,11 +12,11 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     var collectionView: UICollectionView!
     var persons: [Person]?
     
-    private var layout : UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 5
-        return layout
-    }
+//    private var layout : UICollectionViewFlowLayout {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.minimumLineSpacing = 5
+//        return layout
+//    }
     
     private let interactor: SceneBusinessLogic
     private let router: SceneRoutingLogic
@@ -42,13 +42,28 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     }
     
     func setupCollectionView() {
-        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-//        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = UIColor.yellow
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = UIColor.systemGray
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PersonCellView.self, forCellWithReuseIdentifier: "cell")
         view.addSubview(collectionView)
+    }
+    
+    private func createLayout() -> UICollectionViewLayout {
+        // section -> group -> items -> size
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize:  itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5,
+                                                     bottom: 5, trailing: 5)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(0.2))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize ,
+                                                       subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
     
     // MARK: - SceneDisplayLogic
@@ -68,6 +83,7 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
 }
 
 extension SceneViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return persons?.count ?? 1
         
@@ -76,17 +92,23 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell : PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
         
         cell.label?.text = persons?[indexPath.row].firstName
+        cell.layer.borderWidth = 1
         
         return cell
     }
-}
-
-extension SceneViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        return CGSize(width: self.collectionView.frame.size.width , height: 70)
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailSceneViewController(interactor: interactor, router: router)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+//extension SceneViewController : UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView,
+//        layout collectionViewLayout: UICollectionViewLayout,
+//        sizeForItemAt indexPath: IndexPath
+//    ) -> CGSize {
+//        return CGSize(width: self.collectionView.frame.size.width , height: 70)
+//    }
+//}
 

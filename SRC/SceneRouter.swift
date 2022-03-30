@@ -9,6 +9,7 @@
 import UIKit
 
 final class SceneRouter: SceneRoutingLogic, SceneDataPassing {
+    
     weak var viewController: UIViewController?
     let dataStore: SceneDataStore
 
@@ -23,4 +24,5 @@ private extension SceneRouter {
 //        destination: inout SomewhereDataStore
 //    ) {
 //    }
+    
 }
