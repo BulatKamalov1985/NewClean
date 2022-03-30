@@ -4,7 +4,6 @@
 //
 //  Created by Bulat Kamalov on 28.03.2022.
 //  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
-//
 
 import UIKit
 
@@ -14,14 +13,10 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     var persons: [Person]?
     
     private var layout : UICollectionViewFlowLayout {
-        let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 1
-//        let boundSize: CGSize = UIScreen.main.bounds.size
-//        layout.itemSize = CGSize(width: boundSize.width, height: 50)
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 5
         return layout
     }
-    
     
     private let interactor: SceneBusinessLogic
     private let router: SceneRoutingLogic
@@ -44,17 +39,18 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
         super.viewDidLoad()
         initForm()
         setupCollectionView()
-        self.view.addSubview(collectionView!)
     }
     
     func setupCollectionView() {
-        self.collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        self.collectionView?.backgroundColor = UIColor.yellow
-        self.collectionView?.delegate = self
-        self.collectionView?.dataSource = self
-        self.collectionView?.register(PersonCellView.self, forCellWithReuseIdentifier: "cell")
-
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+//        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = UIColor.yellow
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(PersonCellView.self, forCellWithReuseIdentifier: "cell")
+        view.addSubview(collectionView)
     }
+    
     // MARK: - SceneDisplayLogic
     
     func displayInitForm(_ viewModel: ViewModel) {
@@ -77,22 +73,20 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell : PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
+        
         cell.label?.text = persons?[indexPath.row].firstName
         
         return cell
     }
-
-
 }
 
 extension SceneViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         return CGSize(width: self.collectionView.frame.size.width , height: 70)
     }
 }
+
