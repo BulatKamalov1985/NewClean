@@ -37,7 +37,7 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     
     func setupCollectionView() {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: createLayout())
-        collectionView.backgroundColor = UIColor.systemGray
+        collectionView.backgroundColor = .systemMint
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PersonCellView.self, forCellWithReuseIdentifier: "cell")
@@ -86,13 +86,13 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell : PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
         
         cell.label?.text = persons?[indexPath.row].firstName
-        cell.layer.borderWidth = 1
+        cell.layer.borderWidth = 5
+        cell.layer.backgroundColor = .init(gray: 44, alpha: 0.7)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         router.routeTo()
     }
 }

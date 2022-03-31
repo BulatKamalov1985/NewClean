@@ -160,15 +160,15 @@
 		39687ED227F1D9EB00C0ED34 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				39687ED327F1DA1400C0ED34 /* Protocols */,
 				39687EC627F1C8D200C0ED34 /* SceneViewController.swift */,
-				39C97F5127F2FD1C00626758 /* PersonCell.swift */,
 				39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */,
 				39687EC227F1C8D200C0ED34 /* ScenePresenter.swift */,
 				39687EC327F1C8D200C0ED34 /* SceneWorker.swift */,
 				39687EC427F1C8D200C0ED34 /* SceneRouter.swift */,
 				39687EC527F1C8D200C0ED34 /* SceneModels.swift */,
 				39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */,
+				39687ED327F1DA1400C0ED34 /* Protocols */,
+				39C97F6527F4DA1800626758 /* SceneCell */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -202,6 +202,14 @@
 				39C97F5927F4575E00626758 /* DetailSceneProtocols.swift */,
 			);
 			path = ProtocolsDetailScene;
+			sourceTree = "<group>";
+		};
+		39C97F6527F4DA1800626758 /* SceneCell */ = {
+			isa = PBXGroup;
+			children = (
+				39C97F5127F2FD1C00626758 /* PersonCell.swift */,
+			);
+			path = SceneCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

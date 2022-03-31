@@ -28,7 +28,7 @@ class PersonCellView : UICollectionViewCell {
         label?.frame.size.width = self.frame.size.width
         label?.font = .boldSystemFont(ofSize: 40)
         label?.textAlignment = .center
-        backgroundColor = .white
+        backgroundColor = .systemGray6
         contentView.addSubview(label!)
     }
 }
