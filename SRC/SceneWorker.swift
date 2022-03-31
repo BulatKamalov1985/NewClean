@@ -8,7 +8,7 @@
 
 final class SceneWorker: SceneWorkerLogic {
     func get(_ request: RequestModel) -> ResponseModel {
-        let person = Person(firstName: "DONNY")
+        let person = Person(firstName: "STEVE")
         return ResponseModel(person: Array(repeating: person, count: 30))
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic {
     
+    var label = UILabel()
+    
     private let interactor: DetailSceneBusinessLogic
     private let router: DetailSceneRoutingLogic
 
@@ -35,6 +37,7 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
                                                            style: .plain, target: self,
                                                            action: #selector(dismissSelf))
         initForm()
+        createLabel()
     }
     
     deinit {
@@ -44,6 +47,20 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
     @objc private func dismissSelf() {
         dismiss(animated: true, completion: nil)
     }
+    
+    func createLabel() {
+        label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 12
+        label.font = .boldSystemFont(ofSize: 40)
+        label.center = CGPoint(x: 190, y: 400)
+        label.textAlignment = .center
+        label.backgroundColor = .white
+        label.text = "GO BACK"
+        view.addSubview(label)
+    }
+    
+    
     
     
 
