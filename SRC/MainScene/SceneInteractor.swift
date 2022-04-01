@@ -21,10 +21,12 @@ final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
     }
     
     func requestInitForm(_ request: RequestModel) {
-        worker.get(request) { [weak self] response in
-            guard let response = response else { return }
-            DispatchQueue.main.async {
-                self?.presenter.presentInitForm(response)
+        worker.get(request) { [weak self] result in
+            DispatchQueue.main.async{
+                switch result {
+                case .success(let person): self?.presenter.presentInitForm(person ?? [])
+                case .failure(_): return
+                }
             }
         }
     }

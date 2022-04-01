@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393F3E1527F70BC50040BED5 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F3E1427F70BC50040BED5 /* Mappable.swift */; };
+		393F3E1727F70BE70040BED5 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F3E1627F70BE70040BED5 /* NetworkSessionProtocol.swift */; };
+		393F3E1927F70BFA0040BED5 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F3E1827F70BFA0040BED5 /* NetworkErrors.swift */; };
 		39687E9327F1C25C00C0ED34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687E9227F1C25C00C0ED34 /* AppDelegate.swift */; };
 		39687E9527F1C25C00C0ED34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39687E9427F1C25C00C0ED34 /* SceneDelegate.swift */; };
 		39687E9C27F1C25E00C0ED34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39687E9B27F1C25E00C0ED34 /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		393F3E1427F70BC50040BED5 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		393F3E1627F70BE70040BED5 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProtocol.swift; sourceTree = "<group>"; };
+		393F3E1827F70BFA0040BED5 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		39687E8F27F1C25C00C0ED34 /* NewClean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewClean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39687E9227F1C25C00C0ED34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39687E9427F1C25C00C0ED34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,9 +143,44 @@
 			path = DetailScene;
 			sourceTree = "<group>";
 		};
+		393F3E0E27F70B240040BED5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				393F3E0F27F70B460040BED5 /* NetworkService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		393F3E0F27F70B460040BED5 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				393F3E1627F70BE70040BED5 /* NetworkSessionProtocol.swift */,
+				393F3E1027F70B5A0040BED5 /* Response */,
+				393F3E1127F70B6F0040BED5 /* Request */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		393F3E1027F70B5A0040BED5 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				393F3E1427F70BC50040BED5 /* Mappable.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		393F3E1127F70B6F0040BED5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				393F3E1827F70BFA0040BED5 /* NetworkErrors.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		39687E8627F1C25C00C0ED34 = {
 			isa = PBXGroup;
 			children = (
+				393F3E0E27F70B240040BED5 /* Services */,
 				39687ED227F1D9EB00C0ED34 /* SRC */,
 				39687E9127F1C25C00C0ED34 /* NewClean */,
 				39687EA827F1C25E00C0ED34 /* NewCleanTests */,
@@ -350,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				393F3E1727F70BE70040BED5 /* NetworkSessionProtocol.swift in Sources */,
 				39C97F5E27F4575E00626758 /* DetailSceneRouter.swift in Sources */,
 				39C97F6227F4575E00626758 /* DetailSceneAssembly.swift in Sources */,
 				39687ECB27F1C8D200C0ED34 /* SceneWorker.swift in Sources */,
@@ -361,12 +403,14 @@
 				39C97F5F27F4575E00626758 /* DetailSceneModels.swift in Sources */,
 				39687ECF27F1C8D200C0ED34 /* SceneProtocols.swift in Sources */,
 				39687ECD27F1C8D200C0ED34 /* SceneModels.swift in Sources */,
+				393F3E1527F70BC50040BED5 /* Mappable.swift in Sources */,
 				39687ECA27F1C8D200C0ED34 /* ScenePresenter.swift in Sources */,
 				39C97F6027F4575E00626758 /* DetailSceneViewController.swift in Sources */,
 				39687E9527F1C25C00C0ED34 /* SceneDelegate.swift in Sources */,
 				39687ECC27F1C8D200C0ED34 /* SceneRouter.swift in Sources */,
 				39C97F5227F2FD1C00626758 /* PersonCell.swift in Sources */,
 				39687ECE27F1C8D200C0ED34 /* SceneViewController.swift in Sources */,
+				393F3E1927F70BFA0040BED5 /* NetworkErrors.swift in Sources */,
 				39687ED127F1C8D200C0ED34 /* SceneInteractor.swift in Sources */,
 				39C97F6327F4575E00626758 /* DetailSceneInteractor.swift in Sources */,
 			);

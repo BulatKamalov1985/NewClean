@@ -21,8 +21,7 @@ protocol SceneBusinessLogic {
 }
 
 protocol SceneWorkerLogic {
-    func get(_ request: RequestModel, completion: @escaping ([ResponseModel]?) -> Void)
-    
+    func get(_ request: RequestModel, completion: @escaping (Result<[ResponseModel]?, NetworkError>) -> Void)
 }
 
 protocol ScenePresentationLogic {
@@ -37,11 +36,3 @@ protocol SceneRoutingLogic {
     func routeTo()
 }
 
-protocol EndpointType {
-    var path: String { get set }
-}
-
-protocol NetworkSession {
-    var session: URLSession { get set }
-    func network<Success: Decodable>(endPoint: EndpointType, completion: @escaping (Result<Success, NeworkError>) -> Void)
-}

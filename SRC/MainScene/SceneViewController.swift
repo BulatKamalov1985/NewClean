@@ -71,7 +71,7 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     // MARK: - Private
     
     private func initForm() {
-        interactor.requestInitForm(RequestModel(urlString: "https://jsonplaceholder.typicode.com/posts"))
+        interactor.requestInitForm(RequestModel())
     }
 }
 

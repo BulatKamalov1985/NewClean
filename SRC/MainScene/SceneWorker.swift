@@ -7,7 +7,7 @@
 //
 import UIKit
 
-final class SceneWorker: SceneWorkerLogic, NetworkSession {
+final class SceneWorker: SceneWorkerLogic, NetworkSessionProtocol {
     
     var session: URLSession
     
@@ -17,61 +17,24 @@ final class SceneWorker: SceneWorkerLogic, NetworkSession {
         self.session = session
     }
     
-    func get(_ request: RequestModel, completion: @escaping ([ResponseModel]?) -> Void) {
+    func get(_ request: RequestModel, completion: @escaping (Result<[ResponseModel]?, NetworkError>) -> Void) {
         
-        let endPoint: EndpointType = EndPoint()
-        network(endPoint: endPoint) { (result: Result<[ResponseModel], NeworkError>) in
+        let endPoint: EndpointTypeProtocol = EndPoint()
+        let completionWrapper: (Result<[ResponseModel]?, NetworkError>) -> Void = { result in
             switch result {
-            case .success(let success):
-                completion(success)
+            case .success(let succes):
+                completion(.success(succes))
             case .failure(_):
-                completion([])
+                completion(.failure(.badRequest))
             }
         }
-        
+        network(endpoint: endPoint, completion: completionWrapper)
     }
-    
 }
-private struct EndPoint: EndpointType {
+
+private struct EndPoint : EndpointTypeProtocol {
     var path: String = "https://jsonplaceholder.typicode.com/posts"
 }
 
 
 
-extension EndpointType {
-    var url: URL? {
-        return URLComponents(string: path)?.url
-    }
-}
-
-extension NetworkSession {
-    func network<Success: Decodable>(endPoint: EndpointType, completion: @escaping (Result<Success, NeworkError>) -> Void) {
-        guard
-            let url = endPoint.url
-        else {
-            completion(.failure(.badRequest))
-            return
-        }
-        let task = session.dataTask(with: url ) { data,respose, error in
-            if let data = data {
-                do {
-                    let person = try JSONDecoder().decode(Success.self, from: data)
-                    completion(.success(person))
-                    print("Have Parsed")
-                } catch {
-                    completion(.failure(.badRequest))
-                    print(error.localizedDescription)
-                    return
-                }
-            } else {
-                completion(.failure(.badRequest))
-                return
-            }
-        }
-       task.resume()
-    }
-}
-
-enum NeworkError: Error {
-    case badRequest
-}
