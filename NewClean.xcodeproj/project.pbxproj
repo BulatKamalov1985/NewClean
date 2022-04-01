@@ -106,11 +106,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		393F3E0A27F6304C0040BED5 /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				39687EC627F1C8D200C0ED34 /* SceneViewController.swift */,
+				39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */,
+				39687EC227F1C8D200C0ED34 /* ScenePresenter.swift */,
+				39687EC327F1C8D200C0ED34 /* SceneWorker.swift */,
+				39687EC427F1C8D200C0ED34 /* SceneRouter.swift */,
+				39687EC527F1C8D200C0ED34 /* SceneModels.swift */,
+				39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */,
+				39C97F6527F4DA1800626758 /* SceneCell */,
+				39687ED327F1DA1400C0ED34 /* Protocols */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		393F3E0C27F630C30040BED5 /* DetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				39C97F5827F4575E00626758 /* DetailSceneViewController.swift */,
+				39C97F5B27F4575E00626758 /* DetailSceneInteractor.swift */,
+				39C97F5427F4575E00626758 /* DetailScenePresenter.swift */,
+				39C97F5A27F4575E00626758 /* DetailSceneAssembly.swift */,
+				39C97F5527F4575E00626758 /* DetailSceneWorker.swift */,
+				39C97F5627F4575E00626758 /* DetailSceneRouter.swift */,
+				39C97F5727F4575E00626758 /* DetailSceneModels.swift */,
+				39C97F6427F45CF200626758 /* ProtocolsDetailScene */,
+			);
+			path = DetailScene;
+			sourceTree = "<group>";
+		};
 		39687E8627F1C25C00C0ED34 = {
 			isa = PBXGroup;
 			children = (
 				39687ED227F1D9EB00C0ED34 /* SRC */,
-				39C97F5327F4570300626758 /* DetailScene */,
 				39687E9127F1C25C00C0ED34 /* NewClean */,
 				39687EA827F1C25E00C0ED34 /* NewCleanTests */,
 				39687EB227F1C25E00C0ED34 /* NewCleanUITests */,
@@ -160,15 +190,8 @@
 		39687ED227F1D9EB00C0ED34 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				39687EC627F1C8D200C0ED34 /* SceneViewController.swift */,
-				39687EC927F1C8D200C0ED34 /* SceneInteractor.swift */,
-				39687EC227F1C8D200C0ED34 /* ScenePresenter.swift */,
-				39687EC327F1C8D200C0ED34 /* SceneWorker.swift */,
-				39687EC427F1C8D200C0ED34 /* SceneRouter.swift */,
-				39687EC527F1C8D200C0ED34 /* SceneModels.swift */,
-				39687EC827F1C8D200C0ED34 /* SceneAssembly.swift */,
-				39687ED327F1DA1400C0ED34 /* Protocols */,
-				39C97F6527F4DA1800626758 /* SceneCell */,
+				393F3E0A27F6304C0040BED5 /* MainScene */,
+				393F3E0C27F630C30040BED5 /* DetailScene */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -179,21 +202,6 @@
 				39687EC727F1C8D200C0ED34 /* SceneProtocols.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		39C97F5327F4570300626758 /* DetailScene */ = {
-			isa = PBXGroup;
-			children = (
-				39C97F6427F45CF200626758 /* ProtocolsDetailScene */,
-				39C97F5827F4575E00626758 /* DetailSceneViewController.swift */,
-				39C97F5B27F4575E00626758 /* DetailSceneInteractor.swift */,
-				39C97F5427F4575E00626758 /* DetailScenePresenter.swift */,
-				39C97F5A27F4575E00626758 /* DetailSceneAssembly.swift */,
-				39C97F5527F4575E00626758 /* DetailSceneWorker.swift */,
-				39C97F5627F4575E00626758 /* DetailSceneRouter.swift */,
-				39C97F5727F4575E00626758 /* DetailSceneModels.swift */,
-			);
-			path = DetailScene;
 			sourceTree = "<group>";
 		};
 		39C97F6427F45CF200626758 /* ProtocolsDetailScene */ = {

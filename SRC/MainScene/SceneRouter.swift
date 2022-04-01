@@ -24,11 +24,6 @@ final class SceneRouter: SceneRoutingLogic, SceneDataPassing {
         navigationController.modalPresentationStyle = .fullScreen
         
         viewController?.present(navigationController, animated: true, completion: nil)
-//        rootVC.modalPresentationStyle = .fullScreen
-//        let view = DetailSceneAssembly.build()
-//        view.modalPresentationStyle = .fullScreen
-//        viewController?.present(view, animated: true, completion: nil)
-
     }
 }
 

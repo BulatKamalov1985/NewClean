@@ -10,7 +10,7 @@ import UIKit
 class SceneViewController: UIViewController, SceneDisplayLogic {
     
     var collectionView: UICollectionView!
-    var persons: [Person]?
+    var person: [ViewModel]?
     
     private let interactor: SceneBusinessLogic
     private let router: SceneRoutingLogic
@@ -62,31 +62,29 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
     
     // MARK: - SceneDisplayLogic
     
-    func displayInitForm(_ viewModel: ViewModel) {
-        let person = viewModel.person
-        self.persons = person
+    func displayInitForm(_ viewModel: [ViewModel]) {
+        person = viewModel
         collectionView?.reloadData()
-        print(person.count)
+        //        print(person?.count)
     }
     
     // MARK: - Private
     
     private func initForm() {
-        interactor.requestInitForm(RequestModel())
+        interactor.requestInitForm(RequestModel(urlString: "https://jsonplaceholder.typicode.com/posts"))
     }
 }
 
 extension SceneViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return persons?.count ?? 1
-        
+        return person?.count ?? 1
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
         
-        cell.label?.text = persons?[indexPath.row].firstName
-        cell.layer.borderWidth = 5
+        cell.label.text = person?[indexPath.row].body
+        cell.layer.borderWidth = 3
         cell.layer.backgroundColor = .init(gray: 44, alpha: 0.7)
         
         return cell

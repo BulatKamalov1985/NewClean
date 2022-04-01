@@ -11,7 +11,7 @@ final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
     
     private let presenter: ScenePresentationLogic
     private let worker: SceneWorkerLogic
-
+    
     init(
         presenter: ScenePresentationLogic,
         worker: SceneWorkerLogic
@@ -19,11 +19,13 @@ final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
         self.presenter = presenter
         self.worker = worker
     }
-
+    
     func requestInitForm(_ request: RequestModel) {
-        let response = worker.get(request)
-        DispatchQueue.main.async {
-            self.presenter.presentInitForm(response)
+        worker.get(request) { [weak self] response in
+            guard let response = response else { return }
+            DispatchQueue.main.async {
+                self?.presenter.presentInitForm(response)
+            }
         }
     }
 }

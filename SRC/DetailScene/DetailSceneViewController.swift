@@ -9,6 +9,8 @@
 import UIKit
 
 final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic {
+   
+    
     
     var label = UILabel()
     
@@ -31,13 +33,13 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initForm()
+        createLabel()
         view.backgroundColor = .systemMint
         title = "Wellcome"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back",
                                                            style: .plain, target: self,
                                                            action: #selector(dismissSelf))
-        initForm()
-        createLabel()
     }
     
     deinit {
@@ -55,7 +57,8 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
         label.font = .boldSystemFont(ofSize: 40)
         label.center = CGPoint(x: 190, y: 400)
         label.textAlignment = .center
-        label.backgroundColor = .white
+        label.backgroundColor = .systemMint
+        label.textColor = .white
         label.text = "GO BACK"
         view.addSubview(label)
     }
@@ -66,7 +69,10 @@ final class DetailSceneViewController: UIViewController, DetailSceneDisplayLogic
 
     // MARK: - DetailSceneDisplayLogic
 
-    func displayInitForm(_ viewModel: DetailScene.InitForm.ViewModel) {}
+   
+    func displayInitForm(_ viewModel: DetailScene.InitForm.ViewModel) {
+        
+    }
 
     // MARK: - Private
 

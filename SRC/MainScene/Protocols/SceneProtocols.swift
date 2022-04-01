@@ -6,6 +6,8 @@
 //  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+import Foundation
+
 protocol SceneDataPassing {
     var dataStore: SceneDataStore { get }
 }
@@ -19,17 +21,27 @@ protocol SceneBusinessLogic {
 }
 
 protocol SceneWorkerLogic {
-    func get(_ request: RequestModel) -> ResponseModel
+    func get(_ request: RequestModel, completion: @escaping ([ResponseModel]?) -> Void)
+    
 }
 
 protocol ScenePresentationLogic {
-    func presentInitForm(_ response: ResponseModel)
+    func presentInitForm(_ response: [ResponseModel])
 }
 
 protocol SceneDisplayLogic: AnyObject {
-    func displayInitForm(_ viewModel: ViewModel)
+    func displayInitForm(_ viewModel: [ViewModel])
 }
 
 protocol SceneRoutingLogic {
     func routeTo()
+}
+
+protocol EndpointType {
+    var path: String { get set }
+}
+
+protocol NetworkSession {
+    var session: URLSession { get set }
+    func network<Success: Decodable>(endPoint: EndpointType, completion: @escaping (Result<Success, NeworkError>) -> Void)
 }

@@ -15,18 +15,22 @@ typealias ResponseModel = Scene.InitForm.Response
 enum Scene {
     enum InitForm {
         struct Request {
-            
+            var urlString: String
         }
-        struct Response {
-            var person: [Person]
+        struct Response: Codable {
+            let userId: Int?
+            let id: Int?
+            let title: String?
+            let body: String?
         }
-        struct ViewModel {
-            var person: [Person]
+        struct ViewModel: Codable {
+            let title: String?
+            let body: String?
+            init(resp: ResponseModel) {
+                self.title = resp.title
+                self.body = resp.body
+            }
         }
     }
 }
 
-struct Person {
-    let id = UUID().uuidString
-    let firstName: String
-}
