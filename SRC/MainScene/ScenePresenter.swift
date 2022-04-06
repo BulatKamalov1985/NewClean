@@ -12,8 +12,12 @@ final class ScenePresenter: ScenePresentationLogic {
     weak var viewController: SceneDisplayLogic?
     
     func presentInitForm(_ response: [ResponseModel]) {
-        viewController?.displayInitForm(response.map{ .init(response: $0)})
-        
+//        viewController?.displayInitForm(response.map{ .init(response: $0)})
+        var viewModel: [ViewModel] = []
+        for (index, value) in response.enumerated() {
+            viewModel.append(ViewModel(response: value, index: index))
+        }
+        viewController?.displayInitForm(viewModel)
     }
 }
 
