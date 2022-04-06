@@ -35,15 +35,6 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
         setupCollectionView()
     }
     
-//    func setCellColor(_ collectionView: UICollectionViewCell) -> UIColor {
-//        let indexPath = IndexPath()
-//        if (indexPath.row % 2 == 0) {
-//            return .green
-//        } else {
-//            return .black
-//        }
-//    }
-    
     func setupCollectionView() {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: createLayout())
         collectionView.backgroundColor = .systemMint
@@ -69,7 +60,6 @@ class SceneViewController: UIViewController, SceneDisplayLogic {
         return layout
     }
     
-   
     // MARK: - SceneDisplayLogic
     
     func displayInitForm(_ viewModel: [ViewModel]) {
@@ -90,17 +80,13 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return person?.count ?? 1
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
-        
-        
+        let cell : PersonCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PersonCellView
         
         cell.label.text = person?[indexPath.row].id?.description
-        
         cell.layer.borderWidth = 3
-        cell.backgroundColor = .systemCyan
-            
+        cell.layer.backgroundColor = .init(gray: 44, alpha: 0.7)
+        
         return cell
     }
     
