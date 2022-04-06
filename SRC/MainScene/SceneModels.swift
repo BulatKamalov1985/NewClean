@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 typealias ViewModel = Scene.InitForm.ViewModel
 typealias RequestModel = Scene.InitForm.Request
@@ -18,19 +19,22 @@ enum Scene {
     
         }
         struct Response: Codable {
-            let userId: Int
-            let id: Int
-            let title: String
-            let body: String
-        }
-        struct ViewModel: Codable {
+            let userId: Int?
+            let id: Int?
             let title: String?
             let body: String?
-            init(resp: ResponseModel) {
-                self.title = resp.title
-                self.body = resp.body
+        }
+        struct ViewModel: Codable {
+            let id: Int?
+            let title: String?
+            let body: String?
+            init(response: ResponseModel) {
+                self.id = response.id ?? 1
+                self.title = response.title
+                self.body = response.body
             }
         }
     }
 }
+
 

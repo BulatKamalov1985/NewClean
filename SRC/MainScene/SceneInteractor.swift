@@ -7,6 +7,7 @@
 //
 import Foundation
 
+
 final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
     
     private let presenter: ScenePresentationLogic
@@ -22,9 +23,15 @@ final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
     
     func requestInitForm(_ request: RequestModel) {
         worker.get(request) { [weak self] result in
+
             DispatchQueue.main.async{
                 switch result {
-                case .success(let person): self?.presenter.presentInitForm(person ?? [])
+                case .success(let person):
+                    
+                    let filtred = person?.filter{$0.id! % 2 != 0}
+                    let person = filtred?.enumerated().filter { $0.0 % 2 == 1 }.map { $0.1 }
+                    
+                    self?.presenter.presentInitForm(person ?? [])
                 case .failure(_): return
                 }
             }

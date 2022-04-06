@@ -12,18 +12,24 @@ protocol EndpointTypeProtocol {
 }
 
 protocol NetworkSessionProtocol {
-    func network<Success: Decodable>(endpoint: EndpointTypeProtocol, completion: @escaping (Result<Success, NetworkError>) -> Void)
+    
     var session: URLSession { get set }
+    
+    func network<Success: Decodable>(endpoint: EndpointTypeProtocol, completion: @escaping (Result<Success, NetworkError>) -> Void)
+    
 }
 
 extension EndpointTypeProtocol {
+    
     var url: URL? {
         return URLComponents(string: path)?.url
     }
 }
 
 extension NetworkSessionProtocol {
+    
     func network<Success: Decodable>(endpoint: EndpointTypeProtocol, completion: @escaping (Result<Success, NetworkError>) -> Void) {
+        
         guard let url = endpoint.url else {
             completion(.failure(.badRequest))
             return

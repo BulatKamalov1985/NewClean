@@ -12,7 +12,7 @@ final class ScenePresenter: ScenePresentationLogic {
     weak var viewController: SceneDisplayLogic?
     
     func presentInitForm(_ response: [ResponseModel]) {
-        viewController?.displayInitForm(response.map{ .init(resp: $0)})
+        viewController?.displayInitForm(response.map{ .init(response: $0)})
         
     }
 }
