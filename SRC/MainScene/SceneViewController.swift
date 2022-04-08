@@ -86,8 +86,6 @@ extension SceneViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell.label.text = person?[indexPath.row].id.description
         cell.backgroundColor = person?[indexPath.row].cellColor
         cell.layer.borderWidth = 3
-//        cell.layer.backgroundColor = .init(gray: 44, alpha: 0.7)
-        
         return cell
     }
     

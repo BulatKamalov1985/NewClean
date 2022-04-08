@@ -29,9 +29,13 @@ final class SceneInteractor: SceneBusinessLogic, SceneDataStore {
                 case .success(let person):
                     
                     let filtred = person?.filter{$0.id % 2 != 0}
-                    let person = filtred?.enumerated().filter { $0.0 % 2 == 1 }.map { $0.1 }
+                    let person = filtred?
+                        .enumerated()
+                        .filter { $0.0 % 2 == 1 }
+                        .map { $0.1 }
                     
                     self?.presenter.presentInitForm(person ?? [])
+                    
                 case .failure(_): return
                 }
             }
