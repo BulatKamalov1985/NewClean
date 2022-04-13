@@ -9,11 +9,21 @@
 import UIKit
 
 final class SceneRouter: SceneRoutingLogic, SceneDataPassing {
+    
     weak var viewController: UIViewController?
     let dataStore: SceneDataStore
 
     init(dataStore: SceneDataStore) {
         self.dataStore = dataStore
+    }
+    
+    func routeTo() {
+        let rootVC = DetailSceneAssembly.build()
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        navigationController.navigationBar.backgroundColor = .systemRed
+        navigationController.modalPresentationStyle = .fullScreen
+        
+        viewController?.present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -23,4 +33,5 @@ private extension SceneRouter {
 //        destination: inout SomewhereDataStore
 //    ) {
 //    }
+    
 }
